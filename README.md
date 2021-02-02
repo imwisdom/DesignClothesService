@@ -1,6 +1,6 @@
 # DesignClothesService
 
-(Initialize this project using this project)    
+(Initialize this project using Java and Spring Boot)    
 https://github.com/imwisdom/WebProgramming/tree/master/designable_clothes_Shopping_mall    
 
 
