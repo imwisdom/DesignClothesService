@@ -15,10 +15,10 @@ public class UserService {
         this.userRepository = userRepository;
     }
     public Long join(UserForm userForm){
-        User user = new User();
-        validateUserExist(userForm);
-        validatePasswordSame(userForm);
+        if(validateUserExist(userForm)) return -1L;
+        if(validatePasswordSame(userForm)) return -2L;
 
+        User user = new User();
         user.setName(userForm.getName());
         user.setPassword(userForm.getPassword());
         userRepository.save(user);
@@ -26,16 +26,11 @@ public class UserService {
         return user.getId();
     }
 
-    public void validateUserExist(UserForm userForm){
-        userRepository.findByName(userForm.getName())
-                .ifPresent(m->{
-                    throw new IllegalStateException("This name is exist.");
-                });
+    public boolean validateUserExist(UserForm userForm){
+        return !userRepository.findByName(userForm.getName()).isEmpty();
     }
-    public void validatePasswordSame(UserForm userForm){
-        if(!userForm.getPassword().equals(userForm.getCpassword())){
-            throw new IllegalStateException("These passwords is different.");
-        }
+    public boolean validatePasswordSame(UserForm userForm){
+        return !userForm.getPassword().equals(userForm.getCpassword());
     }
 
 }
