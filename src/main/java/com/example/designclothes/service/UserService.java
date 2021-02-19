@@ -14,7 +14,8 @@ public class UserService {
     public UserService(UserRepository userRepository){
         this.userRepository = userRepository;
     }
-    public Long join(User user, UserForm userForm){
+    public Long join(UserForm userForm){
+        User user = new User();
         validateUserExist(user);
         validatePasswordSame(userForm);
 

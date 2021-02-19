@@ -24,8 +24,7 @@ public class UserController {
 
     @PostMapping("/register")
     public String register(UserForm form){
-        User user = new User();
-        userService.join(user, form);
+        userService.join(form);
 
         return "redirect:/";
     }
