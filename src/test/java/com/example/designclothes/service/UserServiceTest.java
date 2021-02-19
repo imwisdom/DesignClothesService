@@ -1,7 +1,7 @@
 package com.example.designclothes.service;
 
 import com.example.designclothes.controller.UserForm;
-import com.example.designclothes.repository.UserRepository;
+import com.example.designclothes.controller.UserRegisterForm;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,7 +18,7 @@ class UserServiceTest {
     UserService userService;
     @Test
     void join() {
-        UserForm form = new UserForm();
+        UserRegisterForm form = new UserRegisterForm();
         form.setName("wisdom");
         form.setPassword("1234");
         form.setCpassword("1234");
@@ -28,10 +28,11 @@ class UserServiceTest {
     }
 
     @Test
-    void validateUserExist() {
-    }
+    void login(){
+        UserForm form = new UserForm();
+        form.setName("wisdom");
+        form.setPassword("1234");
 
-    @Test
-    void validatePasswordSame() {
+        assertTrue(userService.login(form));
     }
 }

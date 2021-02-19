@@ -1,10 +1,8 @@
 package com.example.designclothes.controller;
 
-import com.example.designclothes.domain.User;
 import com.example.designclothes.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -27,7 +25,7 @@ public class UserController {
         return "register";
     }
     @PostMapping("/register")
-    public String register(UserForm form, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public String register(UserRegisterForm form, HttpServletRequest request, HttpServletResponse response) throws IOException {
         Long regId = userService.join(form);
         response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();
@@ -43,13 +41,27 @@ public class UserController {
         }
         else{
             out.println("<script>alert('회원가입이 완료 되었습니다.')</script>");
-            out.flush();
-            return "index.html";
+            return "../static/index.html";
         }
     }
     @GetMapping("/login")
     public String loginPage(){
         return "login";
+    }
+    @PostMapping("/login")
+    public String login(UserForm form, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        boolean isLoginSuccess = userService.login(form);
+        response.setContentType("text/html; charset=UTF-8");
+        PrintWriter out = response.getWriter();
+
+        if(!isLoginSuccess){
+            out.println("<script>alert('아이디와 비밀번호를 다시 확인하십시오.')</script>");
+            out.flush();
+            return "login";
+        }
+        out.println("<script>alert('로그인에 성공하셨습니다.')</script>");
+        out.flush();
+        return "../static/index.html";
     }
 
 }

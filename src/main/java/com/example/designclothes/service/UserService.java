@@ -1,6 +1,7 @@
 package com.example.designclothes.service;
 
 import com.example.designclothes.controller.UserForm;
+import com.example.designclothes.controller.UserRegisterForm;
 import com.example.designclothes.domain.User;
 import com.example.designclothes.repository.UserRepository;
 
@@ -14,23 +15,28 @@ public class UserService {
     public UserService(UserRepository userRepository){
         this.userRepository = userRepository;
     }
-    public Long join(UserForm userForm){
-        if(validateUserExist(userForm)) return -1L;
-        if(validatePasswordSame(userForm)) return -2L;
+    public Long join(UserRegisterForm userRegisterForm){
+        if(validateUserExist(userRegisterForm)) return -1L;
+        if(validatePasswordSame(userRegisterForm)) return -2L;
 
         User user = new User();
-        user.setName(userForm.getName());
-        user.setPassword(userForm.getPassword());
+        user.setName(userRegisterForm.getName());
+        user.setPassword(userRegisterForm.getPassword());
         userRepository.save(user);
 
         return user.getId();
     }
 
-    public boolean validateUserExist(UserForm userForm){
-        return !userRepository.findByName(userForm.getName()).isEmpty();
+    public boolean validateUserExist(UserRegisterForm userRegisterForm){
+        return !userRepository.findByName(userRegisterForm.getName()).isEmpty();
     }
-    public boolean validatePasswordSame(UserForm userForm){
-        return !userForm.getPassword().equals(userForm.getCpassword());
+    public boolean validatePasswordSame(UserRegisterForm userRegisterForm){
+        return !userRegisterForm.getPassword().equals(userRegisterForm.getCpassword());
+    }
+    public boolean login(UserForm userForm){
+        if(userRepository.findByName(userForm.getName()).isEmpty()) return false;
+        String correctPassword = userRepository.findByName(userForm.getName()).get().getPassword();
+        return userForm.getPassword().equals(correctPassword);
     }
 
 }
