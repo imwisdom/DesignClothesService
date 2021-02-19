@@ -23,10 +23,9 @@ public class UserController {
         this.userService = userService;
     }
     @GetMapping("/register")
-    public String registerForm(){
+    public String registerPage(){
         return "register";
     }
-
     @PostMapping("/register")
     public String register(UserForm form, HttpServletRequest request, HttpServletResponse response) throws IOException {
         Long regId = userService.join(form);
@@ -48,4 +47,9 @@ public class UserController {
             return "index.html";
         }
     }
+    @GetMapping("/login")
+    public String loginPage(){
+        return "login";
+    }
+
 }
