@@ -16,7 +16,7 @@ public class UserService {
     }
     public Long join(UserForm userForm){
         User user = new User();
-        validateUserExist(user);
+        validateUserExist(userForm);
         validatePasswordSame(userForm);
 
         user.setName(userForm.getName());
@@ -26,8 +26,8 @@ public class UserService {
         return user.getId();
     }
 
-    public void validateUserExist(User user){
-        userRepository.findByName(user.getName())
+    public void validateUserExist(UserForm userForm){
+        userRepository.findByName(userForm.getName())
                 .ifPresent(m->{
                     throw new IllegalStateException("This name is exist.");
                 });
