@@ -134,7 +134,7 @@ function putPattern()
 }
 function addPattern() //패턴을 추가하기 위해 hidden file에 file tage 추가
 {
-  if(document.getElementById('clothes').value==' '||document.getElementById('clothes').value=='')
+  if(document.getElementById('clothes').value=='선택'||document.getElementById('clothes').value=='')
     alert("옷 종류를 선택해 주세요");
   else
     document.getElementById('hidden_file').innerHTML = "<input type=file id='pattern' onchange='putPattern()'>";

@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="css/design_site.css" type=text/css/>
+    <link rel="stylesheet" href="css/design_site.css" type="text/css">
 </head>
 
 <body>
@@ -81,102 +81,74 @@
 <div class="register-login-section spad">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 offset-lg-3">
-                <div class="register-form">
-                    <h2>Design</h2>
-                    <div id="modal_of_design"> <!-- 불러오기나 디자인을 할 수 있는 모달창-->
-                        <div id="start_design_modal" style="display:none;"> <!-- 디자인할 때 뜨는 창(왼쪽 창) -->
-                            <div id="imagediv"><!--디자인 할 때 뜨는 image-->
-                            </div><!-- moveletter : 글씨 추가 하는 부분, iconlist : 그림(아이콘) 추가 하는 부분-->
-                            <div id="moveletter" style="position:relative; left:0px; top:-30px; cursor:pointer;" onmousedown='startDrag(event, this)'></div>
-                            <!-- iconlist의 src는 임시로 지정해준 것! -->
-                            <img id="iconlist" alt='no image' src='./clothes/designicon.png' style='display:none;width:50px;height:50px;position:relative; left:0px; top:-30px; cursor:pointer;' onmousedown='startDrag(event, this)'>
+            <h2>Design</h2>
+            <div id="modal_of_design"> <!-- 불러오기나 디자인을 할 수 있는 모달창-->
+                <div id="start_design_modal"> <!-- 디자인할 때 뜨는 창(왼쪽 창) -->
+                    <div id="imagediv"><!--디자인 할 때 뜨는 image-->
+                    </div><!-- moveletter : 글씨 추가 하는 부분, iconlist : 그림(아이콘) 추가 하는 부분-->
+                    <div id="moveletter" style="position:relative; left:0px; top:-30px; cursor:pointer;" onmousedown='startDrag(event, this)'></div>
+                </div>
+                <div id="store_modal"><!-- 디자인 할 때에 대한 기능들(오른쪽 창) -->
+                    <div class="one">
+                        <div class="item"><p>clothes</p></div>
+                        <div class="con">
+                            <select id="clothes" onchange='selectClothes()'><!-- 옷 종류 고르기 -->
+                                <option>선택</option>
+                                <option>반팔</option>
+                                <option>긴팔</option>
+                                <option>긴바지</option>
+                                <option>반바지</option>
+                                <option>긴치마</option>
+                                <option>짧은치마</option>
+                                <option>후드티</option>
+                            </select>
                         </div>
-                        <div id="start_upload_modal" style="display:none;"> <!-- 사용자가 디자인 하여 저장한 것들을 보여주는 창(왼쪽 창) -->
-                            <!--왼쪽 버튼-->
-                            <div id="left">
-                                <input type="button" id="prevbutton" onclick="prevDesign()" style=display:none; value="prev">
-                            </div>
-                            <!--오른쪽 버튼 -->
-                            <div id="right">
-                                <input type="button" id="nextbutton" onclick="nextDesign()" style=display:none; value="next">
-                            </div>
-                            <!--저장된 디자인 이미지가 로드되는 곳 -->
-                            <div id="load_image">
-                            </div>
-                            <!--저장된 디자인 이미지의 이름이 뜨는 곳 -->
-                            <div id="design_name"></div>
+                    </div>
+                    <div class="two"><!-- 색상 고르기-->
+                        <div class="item" id="color_button" onclick="cColor()" ><p>color</p></div>
+                        <div class="con">
+                            <form name="cc">
+                                <div id="colordiv">
+                                    <input type=text size=10 name="textColor">
+                                    <input type="button" class="delete" value="x" onclick="deleteColor()">
+                                </div>
+                                <div id=ContentColor style='position: absolute; z-index:3; display: none;'></div>
+                            </form>
                         </div>
-                        <div id="call_modal"> <!-- 불러오기 할 때에 대한 기능들(오른쪽 창) -->
-                            <h4>디자인 목록</h4>
-                            <!-- 사용자가 저장한 디자인들 리스트를 가져옴. 체크박스와 같이-->
-                            <div id="design_info">
-                            </div>
-                            <div id="order_div"><!-- 주문 버튼-->
-                                <button id="order_design" type=submit onclick="order()">주문</button>
+                    </div>
+                    <div class="three"><!-- 패턴 추가하기-->
+                        <div class="item" onclick="addPattern()" ><p>pattern</p></div>
+                        <div class="con">
+                            <div id="patterndiv">
+                                <input type="button" class="delete" value="x" onclick="deletePattern()">
+                                <div id="hidden_file"></div><!-- input file tag가 들어가는 div-->
                             </div>
                         </div>
-                        <div id="store_modal"><!-- 디자인 할 때에 대한 기능들(오른쪽 창) -->
-                            <div class="one">
-                                <div class="item"><p>clothes</p></div>
-                                <div class="con">
-                                    <select id="clothes" onchange='selectClothes()'><!-- 옷 종류 고르기 -->
-                                        <option>선택</option>
-                                        <option>반팔</option>
-                                        <option>긴팔</option>
-                                        <option>긴바지</option>
-                                        <option>반바지</option>
-                                        <option>긴치마</option>
-                                        <option>짧은치마</option>
-                                        <option>후드티</option>
-                                    </select>
-                                </div>
+                    </div>
+                    <div class="four">  <!-- 글자 추가하는 부분-->
+                        <div class="item" onclick="lettering()" ><p>letter</p></div>
+                        <div class="con">
+                            <div id="letterdiv">
+                                <input type=text id='letter' size=10>
+                                <input type="button" class="delete" value="x" onclick="deleteletter()">
                             </div>
-                            <div class="two"><!-- 색상 고르기-->
-                                <div class="item" id="color_button" onclick="cColor()" ><p>color</p></div>
-                                <div class="con">
-                                    <form name="cc">
-                                        <input type=text size=10 name="textColor">
-                                        <input type="button" class="delete" value="x" onclick="deleteColor()">
-                                        <div id=ContentColor style='position: absolute; z-index:3; display: none;'></div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="three"><!-- 패턴 추가하기-->
-                                <div class="item" onclick="addPattern()" ><p>pattern</p></div>
-                                <div class="con">
-                                    <div id="patterndiv">
-                                        <input type="button" class="delete" value="x" onclick="deletePattern()">
-                                        <div id="hidden_file"></div><!-- input file tag가 들어가는 div-->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="four">  <!-- 글자 추가하는 부분-->
-                                <div class="item" onclick="lettering()" ><p>letter</p></div>
-                                <div class="con">
-                                    <div id="letterdiv">
-                                        <input type=text id='letter' size=10>
-                                        <input type="button" class="delete" value="x" onclick="deleteletter()">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="five"><!-- 아이콘을 추가하는 부분 -->
-                                <div class="item" onclick="addIcon()"><p>icon</p></div>
-                                <div class="con">
-                                    <div id="icondiv">
-                                        <input type="button" class="delete" value="x" onclick="deleteIcon()"><br>
-                                    </div><!-- input file tag가 들어가는 div -->
-                                    <div id="hidden_icon"></div>
-                                </div>
-                            </div>
-                            <div class="six"><!--가격을 알려주는 div-->
-                                <div class="item"><p>price</p></div>
-                                <div class="con">
-                                    <div id="pricediv">
-                                        <span id="price_design">0</span>원
-                                        <button id="save" type=submit onclick="storeNewDesign()">save</button>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="five"><!-- 아이콘을 추가하는 부분 -->
+                        <div class="item" onclick="addIcon()"><p>icon</p></div>
+                        <div class="con">
+                            <div id="icondiv">
+                                <input type="button" class="delete" value="x" onclick="deleteIcon()"><br>
+                            </div><!-- input file tag가 들어가는 div -->
+                            <div id="hidden_icon"></div>
+                        </div>
+                    </div>
+                    <div class="six"><!--가격을 알려주는 div-->
+                        <div class="item"><p>price</p></div>
+                        <div class="con">
+                            <div id="pricediv">
+                                <span id="price_design">0</span>원
+                                <button id="save" type=submit onclick="storeNewDesign()">save</button>
                             </div>
                         </div>
                     </div>
