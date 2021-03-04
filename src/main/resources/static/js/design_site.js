@@ -199,13 +199,14 @@ function putIcon()
       var file = x.files[0];  //파일을 사용자가 직접 업로드하면 그 업로드된 아이콘 파일을 꾸미는 데 이용
       reader.readAsDataURL(file);
       reader.onload = function(){
-       document.getElementById('iconlist').style.display='block';
-       document.getElementById("iconlist").src = reader.result;
+       document.getElementById('iconlist').setAttribute('src', reader.result);
       }
+      document.getElementById('iconlist').style.display='block';
     }
   }
   else {
     document.getElementById('iconlist').style.display='none';
+    document.getElementById('iconlist').removeAttribute('src');
   }
   getPrice(); //가격 업데이트
 }
@@ -268,7 +269,7 @@ function getPrice()
        price = price + 8000;
      if(document.getElementById('letter').value!="")
        price = price + 5000;
-     if(document.getElementById('iconlist').src!="./clothes/designicon.png")
+     if(document.getElementById('iconlist').style.display=="block")
        price = price + 6000;
 
      document.getElementById('price_design').innerHTML=price;
