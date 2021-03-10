@@ -274,9 +274,9 @@ function getPrice()
 
      document.getElementById('price_design').innerHTML=price;
  }
- //사용자가 디자인 한 것을 저장
- function storeNewDesign()
- {
+//사용자가 디자인 한 것을 저장
+function storeNewDesign()
+{
 
- }
+}
 

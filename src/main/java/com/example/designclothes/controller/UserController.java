@@ -42,7 +42,7 @@ public class UserController {
         }
         else{
             out.println("<script>alert('회원가입이 완료 되었습니다.')</script>");
-            return "../static/index.html";
+            return "index";
         }
     }
     @GetMapping("/login")
@@ -65,7 +65,7 @@ public class UserController {
         session.setAttribute("name", form.getName());
         out.println("<script>alert('로그인에 성공하셨습니다.')</script>");
         out.flush();
-        return "../static/index.html";
+        return "index";
     }
 
 }
