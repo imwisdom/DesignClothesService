@@ -50,22 +50,17 @@ public class UserController {
         return "login";
     }
     @PostMapping("/login")
-    public String login(UserForm form, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void login(UserForm form, HttpServletRequest request, HttpServletResponse response) throws IOException {
         boolean isLoginSuccess = userService.login(form);
-        response.setContentType("text/html; charset=UTF-8");
-        PrintWriter out = response.getWriter();
 
         if(!isLoginSuccess){
+            response.setContentType("text/html; charset=UTF-8");
+            PrintWriter out = response.getWriter();
             out.println("<script>alert('아이디와 비밀번호를 다시 확인하십시오.')</script>");
             out.flush();
-            return "login";
         }
-
         HttpSession session = request.getSession();
-        session.setAttribute("name", form.getName());
-        out.println("<script>alert('로그인에 성공하셨습니다.')</script>");
-        out.flush();
-        return "index";
+        session.setAttribute("username", form.getName());
+        response.sendRedirect("/");
     }
-
 }

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="zxx">
 
 <head>
@@ -36,7 +37,7 @@
     <div class="header-top">
         <div class="container">
             <div class="ht-right">
-                <a href="#" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                <a href="#" class="login-panel"><i class="fa fa-user"></i><span id="current-user" th:text="${username}">Login</span></a>
             </div>
         </div>
     </div>
@@ -51,9 +52,9 @@
                 <ul>
                     <li class="active"><a href="/">Home</a></li>
                     <li><a href="./shop.html">Shop</a></li>
-                    <li><a href="./login">Login</a></li>
-                    <li><a href="./design">Design</a></li>
-                    <li><a href="./register">Register</a></li>
+                    <li><a href="#" onclick="login()">Login</a></li>
+                    <li><a href="#" onclick="design()">Design</a></li>
+                    <li><a href="#" onclick="register()">Register</a></li>
                 </ul>
             </nav>
             <div id="mobile-menu-wrap"></div>
@@ -231,7 +232,7 @@
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/design_site.js"></script>
-
+<script src="js/use_site.js"></script>
 </body>
 
 </html>

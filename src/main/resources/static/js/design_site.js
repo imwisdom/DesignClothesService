@@ -1,31 +1,4 @@
 //-------------------- 디자인 ----------------------//
-//디자인 버튼을 누르면 불러오기 창이 없어지고 디자인 창이 뜸
-function clickstore()
-{
-  document.getElementById('left').childNodes[1].style.display = "none";
-  document.getElementById('right').childNodes[1].style.display = "none";
-
-  document.getElementById('call_modal').style.display = "none";
-  document.getElementById('store_modal').style.display = "block";
-
-  document.getElementById('start_design_modal').style.display = "block";
-  document.getElementById('start_upload_modal').style.display = "none";
-}
-//client id를 화면 상단에 띄워놓음
-function showClientId()
-{
-  var a = document.getElementById('clienet');
-
-  $.ajax({url: './server.php',
-           data : {
-             func : 'showid'
-           },
-           type : 'post',
-           success: function(data){
-             document.getElementById('client').innerHTML = data;
-           }
-   });
-}
 //옷 선택하는 함수
 function selectClothes()
 {
