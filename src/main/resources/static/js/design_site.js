@@ -250,6 +250,28 @@ function getPrice()
 //사용자가 디자인 한 것을 저장
 function storeNewDesign()
 {
-
+    if(document.getElementById('clothes').value=="선택"||document.getElementById('clothes').value=="")
+        alert("디자인된 옷이 없습니다.");
+    else {
+        var canvas ="";
+        html2canvas($("#start_design_modal"), {  //div를 캡쳐하는 코드
+        onrendered: function(canvas) {
+        var photo = canvas.toDataURL('image/png');
+        var price = document.getElementById('price_design').innerHTML;
+        $.ajax({
+           method : 'POST',
+           url : './design',
+           data : {
+             photo : photo,
+             price : price,
+           },
+           success: function(data){
+              alert("디자인된 옷이 성공적으로 저장되었습니다.");
+              location.href = location.href;
+           }
+         });
+      }
+     });
+   }
 }
 

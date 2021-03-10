@@ -1,5 +1,6 @@
 package com.example.designclothes.service;
 
+import com.example.designclothes.repository.DesignRepository;
 import com.example.designclothes.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -28,4 +29,10 @@ public class SpringConfig {
     public UserRepository userRepository(){
         return new UserRepository(em);
     }
+
+    @Bean
+    public DesignService designService(){ return new DesignService(designRepository());}
+
+    @Bean
+    public DesignRepository designRepository(){return new DesignRepository(em);}
 }
