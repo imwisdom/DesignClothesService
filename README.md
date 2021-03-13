@@ -28,6 +28,8 @@ If you click "pattern" button, and you upload pattern file, you can put pattern 
 
 If you write your letter and click "letter" button, you can put letter on your clothes.  
 If you click "icon" button, and you upload icon file, you can put icon on your clothes.
-![image](https://user-images.githubusercontent.com/33623136/111019990-0a281000-8406-11eb-8add-ba755b64fbf1.png)
+![image](https://user-images.githubusercontent.com/33623136/111019990-0a281000-8406-11eb-8add-ba755b64fbf1.png)  
+
+If you click "save" button, a .png file of your clothes is saved on server.
 
 
