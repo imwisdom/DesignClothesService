@@ -22,7 +22,7 @@ function register()
     else
         location.href = "./register";
 }
-function clothesList()
+function myClothes()
 {
     if(!isLogin())
         alert("로그인이 되어있지 않습니다.");
