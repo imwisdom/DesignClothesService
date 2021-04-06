@@ -30,6 +30,8 @@ If you write your letter and click "letter" button, you can put letter on your c
 If you click "icon" button, and you upload icon file, you can put icon on your clothes.
 ![image](https://user-images.githubusercontent.com/33623136/111019990-0a281000-8406-11eb-8add-ba755b64fbf1.png)  
 
-If you click "save" button, a .png file of your clothes is saved on server.
+If you click "save" button, a .png file of your clothes is saved on server.  
 
+![image](https://user-images.githubusercontent.com/33623136/113741666-d908da00-973c-11eb-8023-f4f7b20c0602.png)  
 
+In "MY CLOTHES" page, you can see your clothes.
