@@ -7,19 +7,19 @@ function selectClothes()
   if(clothes.value == ' ' || clothes.value == '' )
     alert("옷 종류를 선택해 주십시오");
   else if(clothes.value == '반팔')
-    document.getElementById('imagediv').innerHTML = '<image src="./clothes/t_shirt.png" id="designimg" alt="t_shirt" style="width:325px;height:325px;">';
+    document.getElementById('imagediv').innerHTML = '<image src="./clothes_type/t_shirt.png" id="designimg" alt="t_shirt" style="width:325px;height:325px;">';
   else if(clothes.value == '긴팔')
-    document.getElementById('imagediv').innerHTML = '<image src="./clothes/sleeve.png" id="designimg" alt="sleeve" style="width:390px;height:325px;">';
+    document.getElementById('imagediv').innerHTML = '<image src="./clothes_type/sleeve.png" id="designimg" alt="sleeve" style="width:390px;height:325px;">';
   else if(clothes.value == '긴바지')
-    document.getElementById('imagediv').innerHTML = '<image src="./clothes/jean.png" id="designimg"  alt="jean" style="width:247px;height:364px;">';
+    document.getElementById('imagediv').innerHTML = '<image src="./clothes_type/jean.png" id="designimg"  alt="jean" style="width:247px;height:364px;">';
   else if(clothes.value == '반바지')
-    document.getElementById('imagediv').innerHTML = '<image src="./clothes/pants.png" id="designimg" alt="pants" style="width:325px;height:325px;">';
+    document.getElementById('imagediv').innerHTML = '<image src="./clothes_type/pants.png" id="designimg" alt="pants" style="width:325px;height:325px;">';
   else if(clothes.value == '긴치마')
-    document.getElementById('imagediv').innerHTML = '<image src="./clothes/skirt_l.png" id="designimg" alt="long skirt" style="width:364px;height:364px;">';
+    document.getElementById('imagediv').innerHTML = '<image src="./clothes_type/skirt_l.png" id="designimg" alt="long skirt" style="width:364px;height:364px;">';
   else if(clothes.value == '짧은치마')
-    document.getElementById('imagediv').innerHTML =  '<image src="./clothes/skirt_s.png" id="designimg" alt="short skirt" style="width:325px;height:325px;">';
+    document.getElementById('imagediv').innerHTML =  '<image src="./clothes_type/skirt_s.png" id="designimg" alt="short skirt" style="width:325px;height:325px;">';
   else
-    document.getElementById('imagediv').innerHTML = '<image src="./clothes/hood.png" id="designimg" alt="hood" style="width:299px;height:325px;">';
+    document.getElementById('imagediv').innerHTML = '<image src="./clothes_type/hood.png" id="designimg" alt="hood" style="width:299px;height:325px;">';
 
   getPrice(); //가격 업데이트
 

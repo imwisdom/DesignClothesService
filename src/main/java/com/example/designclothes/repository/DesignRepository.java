@@ -20,11 +20,11 @@ public class DesignRepository {
         Design design = em.find(Design.class, id);
         return Optional.ofNullable(design);
     }
-    public Optional<Design> findByUserName(String userName){
-        List<Design> result = em.createQuery("select d from Design d where d.username = :username",
+    public Optional<List<Design>> findByUserName(String userName){
+        List<Design> result = em.createQuery("select d from Design d where d.userName = :user_name",
                 Design.class)
-                .setParameter("username", userName)
+                .setParameter("user_name", userName)
                 .getResultList();
-        return result.stream().findAny();
+        return Optional.ofNullable(result);
     }
 }

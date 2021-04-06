@@ -1,5 +1,6 @@
 package com.example.designclothes.controller;
 
+import com.example.designclothes.domain.Design;
 import com.example.designclothes.service.DesignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 public class DesignController {
@@ -40,4 +43,17 @@ public class DesignController {
 
         return "design";
     }
+
+    @GetMapping("/clothes")
+    public String clothesPage(HttpServletRequest request, Model model){
+        HttpSession session = request.getSession();
+        model.addAttribute("username", session.getAttribute("username"));
+
+        List<Design> designList = designService.loadDesign((String)session.getAttribute("username"));
+        if(designList!=null && designList.size()>0)
+            model.addAttribute("designList", designList);
+
+        return "clothes";
+    }
+
 }

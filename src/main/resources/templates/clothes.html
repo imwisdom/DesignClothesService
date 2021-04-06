@@ -66,12 +66,19 @@
 <!-- Hero Section Begin -->
 <section class="hero-section">
     <div class="hero-items owl-carousel">
-        <div class="single-hero-items set-bg" data-setbg="img/clothes.png">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5">
-                        Test
-                    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <br>
+                    <h3>Clothes List</h3><br>
+                    <table>
+                        <tr>
+                            <td th:each="design : ${designList}">
+                                <img th:src="@{${design.fileRoute}}" width="200px" height="200px"/>
+                                <span th:text="${design.price}"></span><span>원</span>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
