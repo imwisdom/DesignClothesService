@@ -8,10 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -24,11 +24,19 @@ public class DesignController {
         this.designService = designService;
     }
     @GetMapping("/design")
-    public String designPage(HttpServletRequest request, Model model){
+    public ModelAndView designPage(HttpServletRequest request, Model model){
         HttpSession session = request.getSession();
         model.addAttribute("username", session.getAttribute("username"));
 
-        return "design";
+        ModelAndView mav = new ModelAndView();
+
+        if(session.getAttribute("username") == null){
+            mav.setViewName("redirect:/login");
+        }
+        else{
+            mav.setViewName("design");
+        }
+        return mav;
     }
     @PostMapping("/design")
     public String saveDesign(HttpServletRequest request, @RequestParam("photo") String photo,
@@ -45,15 +53,24 @@ public class DesignController {
     }
 
     @GetMapping("/clothes")
-    public String clothesPage(HttpServletRequest request, Model model){
+    public ModelAndView clothesPage(HttpServletRequest request, Model model){
         HttpSession session = request.getSession();
         model.addAttribute("username", session.getAttribute("username"));
+
+        ModelAndView mav = new ModelAndView();
+
+        if(session.getAttribute("username") == null){
+            mav.setViewName("redirect:/login");
+        }
+        else{
+            mav.setViewName("clothes");
+        }
 
         List<Design> designList = designService.loadDesign((String)session.getAttribute("username"));
         if(designList!=null && designList.size()>0)
             model.addAttribute("designList", designList);
 
-        return "clothes";
+        return mav;
     }
 
 }
