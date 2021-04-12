@@ -11,27 +11,28 @@ This is a main page.
 ![image](https://user-images.githubusercontent.com/33623136/111019793-bec13200-8404-11eb-9e7a-5c8f44b6654e.png)  
 
 If you log in, you can design your clothes.  
-![image](https://user-images.githubusercontent.com/33623136/111019830-f4feb180-8404-11eb-8ff5-940c19819115.png)
+![image](https://user-images.githubusercontent.com/33623136/114363768-b4d15100-9bb3-11eb-8b0c-0a891ab08592.png)
 
 If you don't have ID, you can make it.  
-![image](https://user-images.githubusercontent.com/33623136/111019845-13fd4380-8405-11eb-8eb5-623a993afefc.png)    
+![image](https://user-images.githubusercontent.com/33623136/114364004-ef3aee00-9bb3-11eb-8ad5-9f3a4665b2b6.png)   
+
+This is a main page when you log in.  
+![image](https://user-images.githubusercontent.com/33623136/114364593-81db8d00-9bb4-11eb-8826-82d870238f42.png)    
 
 In design page, you can choose clothes type.  
-![image](https://user-images.githubusercontent.com/33623136/111019859-35f6c600-8405-11eb-8e87-b820cb6150a4.png)  
+![image](https://user-images.githubusercontent.com/33623136/114364780-b3ecef00-9bb4-11eb-81c3-8f3f27eeebf4.png)    
 
 If you click "color" button, you can choose color of clothes.  
-![image](https://user-images.githubusercontent.com/33623136/111019870-4ad35980-8405-11eb-964f-7c7435758fce.png)
-![image](https://user-images.githubusercontent.com/33623136/111019888-60e11a00-8405-11eb-87e2-819753b70550.png)  
+![image](https://user-images.githubusercontent.com/33623136/114364851-cbc47300-9bb4-11eb-9e07-892ab89e1675.png)    
 
 If you click "pattern" button, and you upload pattern file, you can put pattern on your clothes.
-![image](https://user-images.githubusercontent.com/33623136/111019923-9e45a780-8405-11eb-86e3-f888d52db682.png)  
+![image](https://user-images.githubusercontent.com/33623136/114365057-06c6a680-9bb5-11eb-9c15-a5926e270fbd.png)    
 
 If you write your letter and click "letter" button, you can put letter on your clothes.  
 If you click "icon" button, and you upload icon file, you can put icon on your clothes.
-![image](https://user-images.githubusercontent.com/33623136/111019990-0a281000-8406-11eb-8add-ba755b64fbf1.png)  
+![image](https://user-images.githubusercontent.com/33623136/114365310-56a56d80-9bb5-11eb-9b7c-b6a0d705c70a.png)    
 
 If you click "save" button, a .png file of your clothes is saved on server.  
 
-![image](https://user-images.githubusercontent.com/33623136/113741666-d908da00-973c-11eb-8023-f4f7b20c0602.png)  
-
-In "MY CLOTHES" page, you can see your clothes.
+In "MY CLOTHES" page, you can see your clothes.    
+![image](https://user-images.githubusercontent.com/33623136/114366451-6e312600-9bb6-11eb-8e36-bec97daeea0c.png)
