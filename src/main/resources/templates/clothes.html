@@ -75,7 +75,7 @@
                     <table>
                         <tr>
                             <td th:each="design : ${designList}">
-                                <img th:src="@{${design.fileRoute}}"/>
+                                <img th:src="@{${design.fileRoute}}" style="cursor:pointer;"/>
                                 <span th:text="${design.price}"></span><span>원</span>
                             </td>
                         </tr>
