@@ -35,4 +35,22 @@ If you click "icon" button, and you upload icon file, you can put icon on your c
 If you click "save" button, a .png file of your clothes is saved on server.  
 
 In "MY CLOTHES" page, you can see your clothes.    
-![image](https://user-images.githubusercontent.com/33623136/114366451-6e312600-9bb6-11eb-8e36-bec97daeea0c.png)
+![image](https://user-images.githubusercontent.com/33623136/114366451-6e312600-9bb6-11eb-8e36-bec97daeea0c.png)    
+
+If you click your design, you can see your detailed design.  
+If you click "주문하기" button, you can order your design.    
+![image](https://user-images.githubusercontent.com/33623136/115996832-e0285700-a61b-11eb-9965-6ad9448e6411.png)    
+
+This is a main page if you are an administer(admin).  
+If you click "manage", you can manage all orders.    
+![image](https://user-images.githubusercontent.com/33623136/115996910-2087d500-a61c-11eb-92bd-5c14dcf180d1.png)    
+
+This is order list page.  
+If you click "detail", you can see a detailed design a user(requested by) ordered.    
+"주문 상태" is if an order is checked by admin. If an order is checked, this value is true. If not, this value is false.  
+If you click "주문 상태", you can check an order.  
+![image](https://user-images.githubusercontent.com/33623136/115997007-79576d80-a61c-11eb-9e56-40f5c37b2a7d.png)    
+
+
+
+
