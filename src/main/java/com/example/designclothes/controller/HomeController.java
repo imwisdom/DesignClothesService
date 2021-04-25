@@ -14,6 +14,7 @@ public class HomeController {
     public String home(HttpServletRequest request, Model model){
         HttpSession session = request.getSession();
         model.addAttribute("username", session.getAttribute("username"));
+        model.addAttribute("is_admin", session.getAttribute("is_admin"));
 
         return "index";
     }

@@ -38,5 +38,9 @@ public class UserService {
         String correctPassword = userRepository.findByName(userForm.getName()).get().getPassword();
         return userForm.getPassword().equals(correctPassword);
     }
+    public boolean isAdmin(String userName){
+        if(userRepository.findByName(userName).isEmpty()) return false;
+        return userRepository.findByName(userName).get().getIsAdmin();
+    }
 
 }

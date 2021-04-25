@@ -1,5 +1,6 @@
 package com.example.designclothes.controller;
 
+import com.example.designclothes.domain.User;
 import com.example.designclothes.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -61,8 +62,11 @@ public class UserController {
             out.println("<script>alert('아이디와 비밀번호를 다시 확인하십시오.')</script>");
             out.flush();
         }
-        HttpSession session = request.getSession();
-        session.setAttribute("username", form.getName());
+        else{
+            HttpSession session = request.getSession();
+            session.setAttribute("username", form.getName());
+            session.setAttribute("is_admin", userService.isAdmin(form.getName()));
+        }
 
         response.sendRedirect("/");
     }
