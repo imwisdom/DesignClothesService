@@ -69,20 +69,14 @@
     <div class="hero-items owl-carousel">
         <div class="container">
             <div class="row">
-                <div class="col-lg-5">
+                <form method="post">
                     <br>
-                    <h3>Clothes List</h3><br>
-                    <table>
-                        <tr>
-                            <td th:each="design : ${designList}">
-                                <a th:href="@{/detail(id=${design.id})}" target="_blank">
-                                    <img th:src="@{${design.fileRoute}}" style="cursor:pointer;" />
-                                </a>
-                                <span th:text="${design.price}"></span><span>원</span>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+                    <img th:src="@{${design.fileRoute}}"><br>
+                    <span>Made by : </span><span th:text="${design.userName}"></span><br>
+                    <span>가격 : </span><span th:text="${design.price}"></span><span>원</span><br><br>
+                    <button type="submit">주문하기</button><br>
+                    <br>
+                </form>
             </div>
         </div>
     </div>

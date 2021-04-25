@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
@@ -72,6 +73,24 @@ public class DesignController {
         if(designList!=null && designList.size()>0)
             model.addAttribute("designList", designList);
 
+        return mav;
+    }
+    @GetMapping("/detail")
+    public ModelAndView detailedDesignPage(HttpServletRequest request, Model model,
+                                           @RequestParam("id") Long designId){
+        HttpSession session = request.getSession();
+        Design design = designService.loadDesign(designId);
+        ModelAndView mav = new ModelAndView();
+        model.addAttribute("username", session.getAttribute("username"));
+        model.addAttribute("is_admin", session.getAttribute("is_admin"));
+
+        if(!design.getUserName().equals(session.getAttribute("username"))){
+            mav.setViewName("design");
+        }
+        else{
+            model.addAttribute("design", design);
+            mav.setViewName("detail");
+        }
         return mav;
     }
 

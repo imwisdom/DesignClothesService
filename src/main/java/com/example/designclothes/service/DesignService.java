@@ -37,4 +37,9 @@ public class DesignService {
         if(optionalList.isEmpty()) return null;
         else return optionalList.get();
     }
+    public Design loadDesign(Long id){
+        Optional<Design> optionalDesign = designRepository.findById(id);
+        if(optionalDesign.isEmpty()) return null;
+        else return optionalDesign.get();
+    }
 }
