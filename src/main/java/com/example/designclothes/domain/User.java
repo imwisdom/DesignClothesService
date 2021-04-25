@@ -10,6 +10,7 @@ public class User {
     private Long id;
     private String name;
     private String password;
+    private boolean isAdmin;
 
     public String getName(){
         return name;
@@ -29,5 +30,7 @@ public class User {
     public void setPassword(String password){
         this.password = password;
     }
+    public boolean getIsAdmin(){return isAdmin;}
+    public void setIsAdmin(boolean isAdmin){this.isAdmin = isAdmin;}
 
 }
