@@ -38,9 +38,9 @@ public class SpringConfig {
     public DesignRepository designRepository(){return new DesignRepository(em);}
 
     @Bean
-    public UserOrderService orderService(){return new UserOrderService(orderRepository());}
+    public UserOrderService userOrderService(){return new UserOrderService(userOrderRepository());}
 
     @Bean
-    public UserOrderRepository orderRepository(){return new UserOrderRepository(em);}
+    public UserOrderRepository userOrderRepository(){return new UserOrderRepository(em);}
 
 }

@@ -86,7 +86,8 @@ public class DesignController {
         model.addAttribute("username", session.getAttribute("username"));
         model.addAttribute("is_admin", session.getAttribute("is_admin"));
 
-        if(!design.getUserName().equals(session.getAttribute("username"))){
+        if(!design.getUserName().equals(session.getAttribute("username"))
+                && (session.getAttribute("is_admin")==null || !(boolean)session.getAttribute("is_admin"))){
             mav.setViewName("design");
         }
         else{

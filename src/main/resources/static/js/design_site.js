@@ -275,7 +275,6 @@ function storeNewDesign()
    }
 }
 function order(id){
-
     $.ajax({
         method : 'POST',
         url : './order',
@@ -285,6 +284,19 @@ function order(id){
         success: function(data){
             alert("주문이 완료되었습니다.");
             location.href = './clothes';
+        }
+    });
+}
+function checkOrder(id){
+    $.ajax({
+        method : 'POST',
+        url : './manage',
+        data : {
+            id : id,
+        },
+        success: function(data){
+            alert("주문 확정이 완료되었습니다.");
+            location.href = './manage';
         }
     });
 }

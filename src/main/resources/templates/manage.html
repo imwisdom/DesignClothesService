@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-
+    <link rel="stylesheet" href="css/design_site.css" type="text/css">
 
 </head>
 
@@ -71,13 +71,21 @@
     <div class="hero-items owl-carousel">
         <div class="container">
             <div class="row">
-                <div>
+                <div class="col-lg-5">
                     <br>
-                    <img th:src="@{${design.fileRoute}}"><br>
-                    <span>Made by : </span><span th:text="${design.userName}"></span><br>
-                    <span>가격 : </span><span th:text="${design.price}"></span><span>원</span><br><br>
-                    <button th:onclick="order([[${design.id}]])">주문하기</button><br>
-                    <br>
+                    <h3>Order List</h3><br>
+                    <table class="order_table" style="border: 1px solid black;">
+                        <tr>
+                            <th>order id</th><th>requested by</th><th>detail</th><th>주문 상태</th><th>주문 확정</th>
+                        </tr>
+                        <tr th:each="order : ${userOrderList}">
+                            <td th:text="${order.id}" name="order_id"></td>
+                            <td th:text="${order.userName}"></td>
+                            <td><a th:href="@{/detail(id=${order.designId})}">detail</a></td>
+                            <td th:text="${order.isChecked}"></td>
+                            <td><button th:onclick="checkOrder([[${order.id}]])">주문 확정</button></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -117,7 +125,6 @@
 <script src="js/jquery.slicknav.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
-<script src="js/use_site.js"></script>
 <script src="js/design_site.js"></script>
 </body>
 

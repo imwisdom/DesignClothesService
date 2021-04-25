@@ -1,5 +1,6 @@
 package com.example.designclothes.controller;
 
+import com.example.designclothes.domain.Design;
 import com.example.designclothes.domain.UserOrder;
 import com.example.designclothes.service.UserOrderService;
 import org.dom4j.rule.Mode;
@@ -14,14 +15,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
-public class OrderController {
+public class UserOrderController {
 
     private UserOrderService userOrderService;
 
     @Autowired
-    public OrderController(UserOrderService userOrderService){
+    public UserOrderController(UserOrderService userOrderService){
         this.userOrderService = userOrderService;
     }
 
@@ -36,6 +39,32 @@ public class OrderController {
 
         ModelAndView mav = new ModelAndView();
         mav.setViewName("clothes");
+        return mav;
+    }
+    @GetMapping("/manage")
+    public ModelAndView manage(HttpServletRequest request, Model model){
+        HttpSession session = request.getSession();
+
+        ModelAndView mav = new ModelAndView();
+        model.addAttribute("username", session.getAttribute("username"));
+        model.addAttribute("is_admin", session.getAttribute("is_admin"));
+
+        if(session.getAttribute("is_admin")==null || !(boolean)session.getAttribute("is_admin")){
+            mav.setViewName("redirect:/");
+        }else{
+            List<UserOrder> list = userOrderService.getAllOrderList();
+            model.addAttribute("userOrderList", list);
+            mav.setViewName("manage");
+        }
+        return mav;
+    }
+    @PostMapping("/manage")
+    public ModelAndView checkOrder(HttpServletRequest request, Model model,
+                                   @RequestParam("id") Long id){
+        ModelAndView mav = new ModelAndView();
+        userOrderService.checkOrder(id);
+
+        mav.setViewName("manage");
         return mav;
     }
 }

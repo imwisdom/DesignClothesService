@@ -27,5 +27,8 @@ public class UserOrderService {
         if(list.isEmpty()) return null;
         else return list.get();
     }
+    public UserOrder checkOrder(Long id){
+        return userOrderRepository.updateChecked(id);
+    }
 
 }

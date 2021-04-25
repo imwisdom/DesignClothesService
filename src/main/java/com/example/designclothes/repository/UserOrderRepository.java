@@ -32,5 +32,11 @@ public class UserOrderRepository {
                 UserOrder.class).getResultList();
         return Optional.ofNullable(result);
     }
+    public UserOrder updateChecked(Long id){
+        UserOrder userOrder = em.find(UserOrder.class, id);
+        userOrder.setIsChecked(true);
+        em.persist(userOrder);
+        return userOrder;
+    }
 
 }
