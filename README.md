@@ -49,7 +49,8 @@ This is order list page.
 If you click "detail", you can see a detailed design a user(requested by) ordered.    
 "주문 상태" is if an order is checked by admin. If an order is checked, this value is true. If not, this value is false.  
 If you click "주문 상태", you can check an order.  
-![image](https://user-images.githubusercontent.com/33623136/115997007-79576d80-a61c-11eb-9e56-40f5c37b2a7d.png)    
+![image](https://user-images.githubusercontent.com/33623136/115997391-e7e8fb00-a61d-11eb-8bc6-e6f8f7501c76.png)
+
 
 
 
