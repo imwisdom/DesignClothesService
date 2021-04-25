@@ -1,6 +1,7 @@
 package com.example.designclothes.service;
 
 import com.example.designclothes.repository.DesignRepository;
+import com.example.designclothes.repository.UserOrderRepository;
 import com.example.designclothes.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -35,4 +36,11 @@ public class SpringConfig {
 
     @Bean
     public DesignRepository designRepository(){return new DesignRepository(em);}
+
+    @Bean
+    public UserOrderService orderService(){return new UserOrderService(orderRepository());}
+
+    @Bean
+    public UserOrderRepository orderRepository(){return new UserOrderRepository(em);}
+
 }

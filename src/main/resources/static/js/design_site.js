@@ -274,4 +274,17 @@ function storeNewDesign()
      });
    }
 }
+function order(id){
 
+    $.ajax({
+        method : 'POST',
+        url : './order',
+        data : {
+            id : id,
+        },
+        success: function(data){
+            alert("주문이 완료되었습니다.");
+            location.href = './clothes';
+        }
+    });
+}
