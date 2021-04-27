@@ -8,7 +8,7 @@
     <meta name="keywords" content="Fashi, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fashi | Template</title>
+    <title>designable clothes</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -52,12 +52,12 @@
             <nav class="nav-menu mobile-menu">
                 <ul>
                     <li><a href="./">Home</a></li>
-                    <li class="active"><a href="./clothes">My Clothes</a></li>
+                    <li><a href="./clothes">My Clothes</a></li>
                     <li th:if="${username == null}"><a href="./login">Login</a></li>
                     <li th:unless="${username == null}"><a href="./logout">Logout</a></li>
                     <li><a href="./design">Design</a></li>
                     <li th:if="${username == null}"><a href="./register">Register</a></li>
-                    <li th:if="${is_admin}"><a href="./manage">Manage</a></li>
+                    <li th:if="${is_admin}" class="active"><a href="./manage">Manage</a></li>
                 </ul>
             </nav>
             <div id="mobile-menu-wrap"></div>
