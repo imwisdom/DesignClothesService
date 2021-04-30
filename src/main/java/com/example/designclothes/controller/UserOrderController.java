@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,6 +36,7 @@ public class UserOrderController {
         UserOrder userOrder = new UserOrder();
         userOrder.setDesignId(id);
         userOrder.setUserName((String) session.getAttribute("username"));
+        userOrder.setDate(LocalDateTime.now());
         userOrderService.saveOrder(userOrder);
 
         ModelAndView mav = new ModelAndView();
