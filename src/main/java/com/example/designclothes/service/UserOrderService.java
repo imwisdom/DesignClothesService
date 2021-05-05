@@ -30,5 +30,8 @@ public class UserOrderService {
     public UserOrder checkOrder(Long id){
         return userOrderRepository.updateChecked(id);
     }
+    public UserOrder removeOrder(Long id){
+        return userOrderRepository.remove(id);
+    }
 
 }

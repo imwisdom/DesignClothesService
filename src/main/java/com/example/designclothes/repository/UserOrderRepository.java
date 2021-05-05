@@ -38,5 +38,10 @@ public class UserOrderRepository {
         em.persist(userOrder);
         return userOrder;
     }
+    public UserOrder remove(Long id){
+        UserOrder userOrder = em.find(UserOrder.class, id);
+        em.remove(userOrder);
+        return userOrder;
+    }
 
 }

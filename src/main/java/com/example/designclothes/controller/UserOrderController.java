@@ -69,4 +69,13 @@ public class UserOrderController {
         mav.setViewName("manage");
         return mav;
     }
+    @DeleteMapping("/manage")
+    public ModelAndView removeOrder(HttpServletRequest request, Model model,
+                                   @RequestParam("id") Long id){
+        ModelAndView mav = new ModelAndView();
+        userOrderService.removeOrder(id);
+
+        mav.setViewName("manage");
+        return mav;
+    }
 }

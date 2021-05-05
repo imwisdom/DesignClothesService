@@ -292,7 +292,7 @@ function checkOrder(id){
         method : 'POST',
         url : './manage',
         data : {
-            check_id : id,
+            id : id,
         },
         success: function(data){
             alert("주문 확정이 완료되었습니다.");
@@ -302,10 +302,10 @@ function checkOrder(id){
 }
 function removeOrder(id){
     $.ajax({
-        method : 'POST',
+        method : 'DELETE',
         url : './manage',
         data : {
-            remove_id : id,
+            id : id,
         },
         success: function(data){
             alert("주문 삭제가 완료되었습니다.");
