@@ -292,10 +292,23 @@ function checkOrder(id){
         method : 'POST',
         url : './manage',
         data : {
-            id : id,
+            check_id : id,
         },
         success: function(data){
             alert("주문 확정이 완료되었습니다.");
+            location.href = './manage';
+        }
+    });
+}
+function removeOrder(id){
+    $.ajax({
+        method : 'POST',
+        url : './manage',
+        data : {
+            remove_id : id,
+        },
+        success: function(data){
+            alert("주문 삭제가 완료되었습니다.");
             location.href = './manage';
         }
     });

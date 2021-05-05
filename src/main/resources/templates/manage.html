@@ -86,6 +86,7 @@
                             <td th:text="${order.date}"></td>
                             <td th:text="${order.isChecked}"></td>
                             <td><button th:onclick="checkOrder([[${order.id}]])">주문 확정</button></td>
+                            <td><button th:onclick="removeOrder([[${order.id}]])">주문 삭제</button></td>
                         </tr>
                     </table>
                 </div>
