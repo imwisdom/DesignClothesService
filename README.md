@@ -51,7 +51,7 @@ If you click "detail", you can see a detailed design a user(requested by) ordere
 If you click "주문 상태", you can check an order.  
 ![image](https://user-images.githubusercontent.com/33623136/115997391-e7e8fb00-a61d-11eb-8bc6-e6f8f7501c76.png)
 
-
-
+If you click "my order", you can manage all your orders.
+![image](https://user-images.githubusercontent.com/33623136/119332887-2aa4fe00-bcc4-11eb-85dc-91c23b36d5fb.png)
 
 
