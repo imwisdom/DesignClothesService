@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Fashi Template">
+    <meta name="keywords" content="Fashi, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>designable clothes</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/themify-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/design_site.css" type="text/css">
+
+</head>
+
+<body>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<!-- Header Section Begin -->
+<header class="header-section">
+    <div class="header-top">
+        <div class="container">
+            <div class="ht-right">
+                <a href="#" class="login-panel"><i class="fa fa-user"></i><span id="current-user" th:text="${username}">Login</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="inner-header">
+            <h2>Designable Clothes</h2>
+        </div>
+    </div>
+    <div class="nav-item">
+        <div class="container">
+            <nav class="nav-menu mobile-menu">
+                <ul>
+                    <li><a href="./">Home</a></li>
+                    <li><a href="./clothes">My Clothes</a></li>
+                    <li th:if="${username == null}"><a href="./login">Login</a></li>
+                    <li th:unless="${username == null}"><a href="./logout">Logout</a></li>
+                    <li><a href="./design">Design</a></li>
+                    <li th:if="${username == null}"><a href="./register">Register</a></li>
+                    <li th:if="${is_admin}" class="active"><a href="./manage">Manage</a></li>
+                </ul>
+            </nav>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </div>
+</header>
+<!-- Header End -->
+
+<!-- Hero Section Begin -->
+<section class="hero-section">
+    <div class="hero-items owl-carousel">
+        <div class="container">
+            <div class="row">
+                <div>
+                    <div style="padding:10px">
+                        <h3>My Order List</h3>
+                    </div>
+                    <table class="order_table" style="border: 1px solid black;">
+                        <tr>
+                            <th>order id</th><th>requested by</th><th>detail</th><th>date</th><th>주문 상태</th>
+                        </tr>
+                        <tr th:each="order : ${userOrderList}">
+                            <td th:text="${order.id}" name="order_id"></td>
+                            <td th:text="${order.userName}"></td>
+                            <td><a th:href="@{/detail(id=${order.designId})}">detail</a></td>
+                            <td th:text="${order.date}"></td>
+                            <td th:text="${order.isChecked}"></td>
+                            <td><button th:onclick="removeOrder([[${order.id}]])">주문 취소</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+
+<!-- Footer Section Begin -->
+<footer class="footer-section">
+    <div class="copyright-reserved">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="copyright-text">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                    <div class="payment-pic">
+                        <img src="img/payment-method.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->
+
+<!-- Js Plugins -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.countdown.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery.zoom.min.js"></script>
+<script src="js/jquery.dd.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/design_site.js"></script>
+</body>
+
+</html>

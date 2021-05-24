@@ -78,4 +78,21 @@ public class UserOrderController {
         mav.setViewName("manage");
         return mav;
     }
+    @GetMapping("/my_order")
+    public ModelAndView manageMyOrder(HttpServletRequest request, Model model){
+        HttpSession session = request.getSession();
+
+        ModelAndView mav = new ModelAndView();
+        model.addAttribute("username", session.getAttribute("username"));
+        model.addAttribute("is_admin", session.getAttribute("is_admin"));
+
+        if(!session.getAttribute("username").equals("") ||  session.getAttribute("username") != null ||
+                (boolean)session.getAttribute("is_admin") ||  session.getAttribute("is_admin") != null){
+            mav.setViewName("user_order");
+        }else{
+
+            mav.setViewName("redirect:/");
+        }
+        return mav;
+    }
 }
