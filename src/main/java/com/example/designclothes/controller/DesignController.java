@@ -68,12 +68,12 @@ public class DesignController {
             mav.setViewName("redirect:/login");
         }
         else{
+            List<Design> designList = designService.loadDesign((String)session.getAttribute("username"));
+            if(designList!=null && designList.size()>0)
+                model.addAttribute("designList", designList);
+
             mav.setViewName("clothes");
         }
-
-        List<Design> designList = designService.loadDesign((String)session.getAttribute("username"));
-        if(designList!=null && designList.size()>0)
-            model.addAttribute("designList", designList);
 
         return mav;
     }
